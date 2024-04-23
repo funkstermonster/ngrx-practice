@@ -1,6 +1,7 @@
 # NgrxPractice
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.4.
+This project is featured as part of a YouTube tutorial series.
 
 ## Development server
 
