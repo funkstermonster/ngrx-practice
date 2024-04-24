@@ -1,7 +1,7 @@
-<ul>
-  <ng-container *ngFor="let item of products | async">
-    <li class="text-black">
-      {{ item.title }}
-    </li>
-  </ng-container>
-</ul>
+<div class="grid grid-cols-3 gap-5">
+  @for (item of products | async; track $index) {
+
+  <app-product-card [product]="item" (handleAdd)="addItemToCart($event)"/>
+
+  }
+</div>

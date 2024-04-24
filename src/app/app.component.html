@@ -1,2 +1,21 @@
-<app-counter></app-counter>
-<app-products></app-products>
+<div class="min-h-screen bg-gray-100 dark:bg-gray-800">
+  <!-- Navbar -->
+  <nav class="bg-white dark:bg-gray-900 shadow">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <div
+          class="text-4xl font-semibold text-gray-700 dark:text-white ml-[350px]"
+        >
+          Angular NGRX
+        </div>
+        <button
+          routerLink="/cart"
+          class="text-gray-600 dark:text-gray-300 hover:underline"
+        >
+          Cart<span class="ml-1">( {{ (products | async)?.length }} )</span></button
+        >
+      </div>
+    </div>
+  </nav>
+  <router-outlet />
+</div>
