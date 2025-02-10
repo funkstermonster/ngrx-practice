@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { AppState } from './states/app.state';
 import { selectCount } from './states/counter/counter.selector';
 import { Product } from './shared/models/product.interface';
-import { selectCartProducts } from './states/cart/cart.selector';
+import { selectCartItemsCount, selectCartProducts } from './states/cart/cart.selector';
 
 @Component({
   selector: 'app-root',
@@ -19,9 +19,11 @@ export class AppComponent {
   title = 'angular-material-tailwind-boilerplate';
   count: Observable<number>;
   products: Observable<Product[]>;
+  cartItemsCount$: Observable<number>;
 
   constructor(private store: Store<AppState>) {
     this.count = this.store.select(selectCount);
-    this.products = this.store.select(selectCartProducts);
+    this.products = this.store.select(selectCartProducts);  
+    this.cartItemsCount$ = this.store.select(selectCartItemsCount);
   }
 }

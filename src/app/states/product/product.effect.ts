@@ -1,10 +1,10 @@
-import { inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { ProductApiService } from '../../shared/services/product-api.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import * as ProductActions from './product.action';
 import { catchError, map, of, switchMap } from 'rxjs';
 
-
+@Injectable()
 export class ProductEffect {
 
   constructor(private api: ProductApiService, private actions: Actions) {}

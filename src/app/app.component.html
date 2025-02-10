@@ -12,7 +12,7 @@
           routerLink="/cart"
           class="text-gray-600 dark:text-gray-300 hover:underline"
         >
-          Cart<span class="ml-1">( {{ (products | async)?.length }} )</span></button
+          Cart<span class="ml-1">( {{ cartItemsCount$ | async }} )</span></button
         >
       </div>
     </div>

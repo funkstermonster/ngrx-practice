@@ -26,7 +26,6 @@ export class ProductsComponent implements OnInit {
     this.store.dispatch(ProductActions.loadProduct());
     this.products = this.store.select(ProductSelectors.selectAllPRoducts);
     this.error = this.store.select(ProductSelectors.selectProductError);
-
   }
 
   ngOnInit() {}

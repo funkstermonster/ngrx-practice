@@ -17,10 +17,10 @@ export const ProductReducer = createReducer(
     on(ProductActions.loadProductSuccess, (state, { products }) => ({
         ...state,
         products,
-        errorMessage: null // corrected property name
+        errorMessage: null
     })),
 
-    on(ProductActions.loadProductFailure, (state, { errorMessage }) => ({ // corrected action name
+    on(ProductActions.loadProductFailure, (state, { errorMessage }) => ({ 
         ...state,
         errorMessage: errorMessage
     }))

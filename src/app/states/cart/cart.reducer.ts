@@ -19,10 +19,25 @@ export function calculateTotalPrice(products: Product[]) {
     0
   );
 }
+
 export const cartReducer = createReducer(
   initialCounterState,
   on(CartActions.addToCart, (state, { product }) => {
-    const updatedProducts = [...state.products, product];
+    const existingProduct = state.products.find(p => p.id === product.id);
+
+    let updatedProducts;
+    if (existingProduct) {
+      // If product exists, map through products and increment quantity
+      updatedProducts = state.products.map(p =>
+        p.id === product.id
+          ? { ...p, quantity: p.quantity + 1 }
+          : p
+      );
+    } else {
+      // If product doesn't exist, add it with quantity 1
+      updatedProducts = [...state.products, { ...product, quantity: 1 }];
+    }
+
     return {
       ...state,
       products: updatedProducts,
